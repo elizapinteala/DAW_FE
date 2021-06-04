@@ -1,0 +1,130 @@
+<div class="row">
+    <div class="col-md-6">
+        <div>
+            <br />
+        </div>
+        <div class="row" *ngIf="showMsg==1">
+            <p class="alert alert-success">
+                <strong>Donation was added successfully!</strong>
+            </p>
+        </div>
+        <div></div>
+        <div class="row" *ngIf="showMsg==2">
+            <p class="alert alert-danger">
+                <strong>Donation cannot be added!</strong>
+            </p>
+        </div>
+        <div class="card spur-card">
+            <div class="card-header">
+                <div class="spur-card-title font-weight-bold"> Add a new donation</div>
+            </div>
+            <div class="card-body ">
+                <form (ngSubmit)="onSubmit(donationForm)" #donationForm="ngForm" class="form">
+                    <div class="form-group required">
+                        <label for="donationDate">Donation Date: </label>
+                        <input type="datetime" [(ngModel)]="donation.donationDate" class="form-control"
+                            placeholder="Enter Donation Date" name="donationDate" required #donationDate="ngModel">
+                    </div>
+                    <div *ngIf="donationDate.invalid && (donationDate.dirty || donationDate.touched)" class="alert alert-danger">
+                        <div *ngIf="donationDate.errors?.required">
+                            Donation Date is required.
+                        </div>
+                    </div>
+<p>
+
+</p>
+                    <div class="form-group">
+                        <label for="amount">Amount: </label>
+                        <input type="number" [(ngModel)]="donation.amount" class="form-control"
+                            placeholder="Enter amount" name="amount" required #amount="ngModel">
+                    </div>
+                    <div *ngIf="amount.invalid && (amount.dirty || amount.touched)" class="alert alert-danger">
+                        <div *ngIf="amount.errors?.required">
+                            Amount is required.
+                        </div>
+                    </div>
+
+                 <p>
+
+                 </p>
+<div class="form-group">
+                        <label for="idCenterDonation">Shelter ID: </label>
+                        <input type="text" [(ngModel)]="donation.idCenterDonation" class="form-control"
+                            placeholder="Enter Shelter ID" name="idCenterDonation" required #idCenterDonation="ngModel">
+                    </div>
+                    <div *ngIf="idCenterDonation.invalid && (idCenterDonation.dirty || idCenterDonation.touched)" class="alert alert-danger">
+                        <div *ngIf="idCenterDonation.errors?.required">
+                            Shelter ID is required.
+                        </div>
+                    </div>
+
+                    <p>
+
+                    </p>
+                    <div class="form-group">
+                        <label for="shelterName">Shelter Name: </label>
+                        <input type="text" [(ngModel)]="donation.shelterName" class="form-control"
+                            placeholder="Enter Shelter Name" name="shelterName" required #shelterName="ngModel">
+                    </div>
+                    <div *ngIf="shelterName.invalid && (shelterName.dirty || shelterName.touched)" class="alert alert-danger">
+                        <div *ngIf="shelterName.errors?.required">
+                            Shelter Name is required.
+                        </div>
+                    </div>
+                    <p>
+
+                    </p>
+
+                    <div class="form-group">
+                        <label for="idPersonDonation">Person ID: </label>
+                        <input type="number" [(ngModel)]="donation.idPersonDonation" class="form-control"
+                            placeholder="Enter Person ID" name="idPersonDonation" required #idPersonDonation="ngModel">
+                    </div>
+                    <div *ngIf="idPersonDonation.invalid && (idPersonDonation.dirty || idPersonDonation.touched)" class="alert alert-danger">
+                        <div *ngIf="idPersonDonation.errors?.required">
+                            Person ID is required.
+                        </div>
+                    </div>
+                    <p>
+
+                    </p>
+            
+                    <div class="form-group">
+                        <label for="firstNamePerson">First Name Person: </label>
+                        <input type="text" [(ngModel)]="donation.firstNamePerson" class="form-control"
+                            placeholder="Enter First Name Person" name="firstNamePerson" required #firstNamePerson="ngModel">
+                    </div>
+                    <div *ngIf="firstNamePerson.invalid && (firstNamePerson.dirty || firstNamePerson.touched)" class="alert alert-danger">
+                        <div *ngIf="firstNamePerson.errors?.required">
+                            First Name Person is required.
+                        </div>
+                    </div>
+                    <p>
+
+                    </p>
+
+                    <div class="form-group">
+                        <label for="lastNamePerson">Last Name Person: </label>
+                        <input type="text" [(ngModel)]="donation.lastNamePerson" class="form-control"
+                            placeholder="Enter Last Name Person" name="lastNamePerson" required #lastNamePerson="ngModel">
+                    </div>
+                    <div *ngIf="lastNamePerson.invalid && (lastNamePerson.dirty || lastNamePerson.touched)" class="alert alert-danger">
+                        <div *ngIf="lastNamePerson.errors?.required">
+                            Last Name Person is required.
+                        </div>
+                    </div>
+<p>
+    
+</p>
+            
+                
+
+                    <button type="submit" class="btn btn-primary"> Add donation </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+    </div>
+</div>
+

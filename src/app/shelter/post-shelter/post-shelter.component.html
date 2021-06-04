@@ -1,0 +1,105 @@
+<div class="row">
+    <div class="col-md-6">
+        <div>
+            <br />
+        </div>
+        <div class="row" *ngIf="showMsg==1">
+            <p class="alert alert-success">
+                <strong>Shelter was added successfully!</strong>
+            </p>
+        </div>
+        <div></div>
+        <div class="row" *ngIf="showMsg==2">
+            <p class="alert alert-danger">
+                <strong>Shelter cannot be added!</strong>
+            </p>
+        </div>
+        <div class="card spur-card">
+            <div class="card-header">
+                <div class="spur-card-title font-weight-bold"> Add a new Shelter</div>
+            </div>
+            <div class="card-body ">
+                <form (ngSubmit)="onSubmit(shelterFrom)" #shelterFrom="ngForm" class="form">
+                    <div class="form-group required">
+                        <label for="shelterName">Shelter Name: </label>
+                        <input type="text" [(ngModel)]="shelter.shelterName" class="form-control"
+                            placeholder="Enter Shelter Name" name="shelterName" required #shelterName="ngModel">
+                    </div>
+                    <div *ngIf="shelterName.invalid && (shelterName.dirty || shelterName.touched)" class="alert alert-danger">
+                        <div *ngIf="shelterName.errors?.required">
+                            Shelter Name is required.
+                        </div>
+                    </div>
+                    <p>
+
+                    </p>
+
+                    <div class="form-group">
+                        <label for="address">Address: </label>
+                        <input type="text" [(ngModel)]="shelter.address" class="form-control"
+                            placeholder="Enter address" name="address" required #address="ngModel">
+                    </div>
+                    <div *ngIf="address.invalid && (address.dirty || address.touched)" class="alert alert-danger">
+                        <div *ngIf="address.errors?.required">
+                            Address is required.
+                        </div>
+                    </div>
+
+                 <p>
+
+                 </p>
+
+                    <div class="form-group">
+                        <label for="city">City: </label>
+                        <input type="text" [(ngModel)]="shelter.city" class="form-control"
+                            placeholder="Enter city" name="city" required #city="ngModel">
+                    </div>
+                    <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
+                        <div *ngIf="city.errors?.required">
+                            City is required.
+                        </div>
+                    </div>
+                    <p>
+
+                    </p>
+            
+                    <div class="form-group">
+                        <label for="phone">Phone: </label>
+                        <input type="text" [(ngModel)]="shelter.phone" class="form-control"
+                            placeholder="Enter phone" name="phone" required #phone="ngModel">
+                    </div>
+                    <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
+                        <div *ngIf="phone.errors?.required">
+                            Phone is required.
+                        </div>
+                    </div>
+                    <p>
+                        
+                    </p>
+
+                    <div class="form-group">
+                        <label for="capacity">Capacity: </label>
+                        <input type="number" [(ngModel)]="shelter.capacity" class="form-control"
+                            placeholder="Enter capacity" name="capacity" required #capacity="ngModel">
+                    </div>
+                    <div *ngIf="capacity.invalid && (capacity.dirty || capacity.touched)" class="alert alert-danger">
+                        <div *ngIf="capacity.errors?.required">
+                            Capacity is required.
+                        </div>
+                    </div>
+                    <div>
+                        <p>
+                            </p>
+                    </div>
+
+                    
+                
+
+                    <button type="submit" class="btn btn-primary"> Add shelter </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+    </div>
+</div>

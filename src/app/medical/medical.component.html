@@ -1,0 +1,61 @@
+<div>
+    <div style="font-size: 40px;">
+    <span class="mb-3"> <a href="#" routerLink="add">
+        <button type="submit" class="btn btn-success"> Add medical chart </button></a></span>
+        </div>
+
+<div class="row">
+
+<div class="row">
+
+    <table mat-table [dataSource]="medicalList">
+        <ng-container matColumnDef="chartDate">
+            <th mat-header-cell *matHeaderCellDef> <span >Medical Chart Date</span>
+             
+            </th>
+            <td mat-cell *matCellDef="let medical">
+                    {{medical.chartDate}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="disease" >
+            <th mat-header-cell *matHeaderCellDef> <span  >Disease</span>
+             
+            </th>
+            <td mat-cell *matCellDef="let medical">
+                    {{medical.disease}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="treatment" >
+            <th mat-header-cell *matHeaderCellDef> <span  >Treatment</span>
+             
+            </th>
+            <td mat-cell *matCellDef="let medical">
+                    {{medical.treatment}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="animalName" >
+            <th mat-header-cell *matHeaderCellDef> <span  >Animal Name</span>
+             
+            </th>
+            <td mat-cell *matCellDef="let medical">
+                    {{medical.animalName}} </td>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>
+            <span> Actions </span>
+            
+            </th>
+            <td mat-cell *matCellDef="let medical">
+            
+            <button type="submit" class="btn btn-danger" (click)="deleteMedical(medical.id)">
+            Delete
+            </button>
+            </td>
+            
+            </ng-container>
+    </table>
+
+</div>

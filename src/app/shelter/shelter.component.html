@@ -1,0 +1,71 @@
+<div>
+    <div style="font-size: 40px;">
+    <span class="mb-3"> <a href="#" routerLink="add">
+        <button type="submit" class="btn btn-success"> Add shelter </button></a></span>
+        </div>
+
+<div class="row">
+
+<div class="row">
+
+    <table mat-table [dataSource]="shelterList">
+        <ng-container matColumnDef="shelterName">
+            <th mat-header-cell *matHeaderCellDef> <span >Shelter Name</span>
+             
+            </th>
+            <td mat-cell *matCellDef="let shelter">
+                    {{shelter.shelterName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="address" >
+            <th mat-header-cell *matHeaderCellDef> <span  >Address</span>
+             
+            </th>
+            <td mat-cell *matCellDef="let shelter">
+                    {{shelter.address}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="city" >
+            <th mat-header-cell *matHeaderCellDef> <span  >City</span>
+             
+            </th>
+            <td mat-cell *matCellDef="let shelter">
+                    {{shelter.city}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="phone" >
+            <th mat-header-cell *matHeaderCellDef> <span  >Phone</span>
+             
+            </th>
+            <td mat-cell *matCellDef="let shelter">
+                    {{shelter.phone}} </td>
+                    
+        </ng-container>
+
+        <ng-container matColumnDef="capacity" >
+            <th mat-header-cell *matHeaderCellDef> <span  >Capacity</span>
+             
+            </th>
+            <td mat-cell *matCellDef="let shelter">
+                    {{shelter.capacity}} </td>
+                    
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>
+            <span> Actions </span>
+            
+            </th>
+            <td mat-cell *matCellDef="let shelter">
+            
+            <button type="submit" class="btn btn-danger" (click)="deleteShelter(shelter.idShelter)">
+            Delete
+            </button>
+            </td>
+            
+            </ng-container>
+    </table>
+
+</div>

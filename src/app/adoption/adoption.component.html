@@ -1,0 +1,78 @@
+<div>
+    <div style="font-size: 40px;">
+    <span class="mb-3"> <a href="#" routerLink="add">
+        <button type="submit" class="btn btn-success"> Add adoption </button></a></span>
+        </div>
+
+<div class="row">
+
+    <table mat-table [dataSource]="adoptionList">
+        <ng-container matColumnDef="adoptionDate">
+            <th mat-header-cell *matHeaderCellDef> <span >Adoption Date</span>
+             
+            </th>
+            <td mat-cell *matCellDef="let adoption">
+                    {{adoption.adoptionDate}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="shelterName" >
+            <th mat-header-cell *matHeaderCellDef> <span  >Shelter Name</span>
+             
+            </th>
+            <td mat-cell *matCellDef="let adoption">
+                    {{adoption.shelterName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="animalName" >
+            <th mat-header-cell *matHeaderCellDef> <span  >Animal Name</span>
+             
+            </th>
+            <td mat-cell *matCellDef="let adoption">
+                    {{adoption.animalName}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="firstNamePerson" >
+            <th mat-header-cell *matHeaderCellDef> <span  >First Name Person</span>
+             
+            </th>
+            <td mat-cell *matCellDef="let adoption">
+                    {{adoption.firstNamePerson}} </td>
+                </ng-container>
+
+                    <ng-container matColumnDef="lastNamePerson" >
+                        <th mat-header-cell *matHeaderCellDef> <span  >Last Name Person</span>
+                         
+                        </th>
+                        <td mat-cell *matCellDef="let adoption">
+                                {{adoption.lastNamePerson}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="phonePerson" >
+                        <th mat-header-cell *matHeaderCellDef> <span  >Phone Person</span>
+                         
+                        </th>
+                        <td mat-cell *matCellDef="let adoption">
+                                {{adoption.phonePerson}} </td>
+                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                    </ng-container>
+
+                    <ng-container matColumnDef="actions">
+                        <th mat-header-cell *matHeaderCellDef>
+                        <span> Actions </span>
+                        
+                        </th>
+                        <td mat-cell *matCellDef="let adoption">
+                        
+                        <button type="submit" class="btn btn-danger" (click)="deleteAdoption(adoption.id)">
+                        Delete
+                        </button>
+                        </td>
+                        
+                        </ng-container>
+
+                    
+        
+    </table>
+
+</div>

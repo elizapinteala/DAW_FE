@@ -1,0 +1,112 @@
+<div class="row">
+    <div class="col-md-6">
+        <div>
+            <br />
+        </div>
+        <div class="row" *ngIf="showMsg==1">
+            <p class="alert alert-success">
+                <strong>Client was added successfully!</strong>
+            </p>
+        </div>
+        <div></div>
+        <div class="row" *ngIf="showMsg==2">
+            <p class="alert alert-danger">
+                <strong>Client cannot be added!</strong>
+            </p>
+        </div>
+        <div class="card spur-card">
+            <div class="card-header">
+                <div class="spur-card-title font-weight-bold"> Add a new client</div>
+            </div>
+            <div class="card-body ">
+                <form (ngSubmit)="onSubmit(personForm)" #personForm="ngForm" class="form">
+                    <div class="form-group required">
+                        <label for="firstName">First Name: </label>
+                        <input type="text" [(ngModel)]="person.firstName" class="form-control"
+                            placeholder="Enter First Name" name="firstName" required #firstName="ngModel">
+                    </div>
+                    <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert alert-danger">
+                        <div *ngIf="firstName.errors?.required">
+                            First Name is required.
+                        </div>
+                    </div>
+<p>
+
+</p>
+                    <div class="form-group">
+                        <label for="lastName">Last Name: </label>
+                        <input type="text" [(ngModel)]="person.lastName" class="form-control"
+                            placeholder="Enter Last Name" name="lastName" required #lastName="ngModel">
+                    </div>
+                    <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger">
+                        <div *ngIf="lastName.errors?.required">
+                            Last Name is required.
+                        </div>
+                    </div>
+<p>
+
+</p>
+                 
+
+                    <div class="form-group">
+                        <label for="address">Address: </label>
+                        <input type="text" [(ngModel)]="person.address" class="form-control"
+                            placeholder="Enter address" name="address" required #address="ngModel">
+                    </div>
+                    <div *ngIf="address.invalid && (address.dirty || address.touched)" class="alert alert-danger">
+                        <div *ngIf="address.errors?.required">
+                            Address is required.
+                        </div>
+                    </div>
+            <p>
+
+            </p>
+                    <div class="form-group">
+                        <label for="city">City: </label>
+                        <input type="text" [(ngModel)]="person.city" class="form-control"
+                            placeholder="Enter city" name="city" required #city="ngModel">
+                    </div>
+                    <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert alert-danger">
+                        <div *ngIf="city.errors?.required">
+                            City is required.
+                        </div>
+                    </div>
+<p>
+
+</p>
+                    <div class="form-group">
+                        <label for="phone">Phone: </label>
+                        <input type="text" [(ngModel)]="person.phone" class="form-control"
+                            placeholder="Enter phone" name="phone" required #phone="ngModel">
+                    </div>
+                    <div *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">
+                        <div *ngIf="phone.errors?.required">
+                            Phone is required.
+                        </div>
+                    </div>
+<p>
+
+</p>
+                    <div class="form-group">
+                        <label for="email">Email: </label>
+                        <input type="text" [(ngModel)]="person.email" class="form-control"
+                            placeholder="Enter email" name="email" required #email="ngModel">
+                    </div>
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                        <div *ngIf="email.errors?.required">
+                            Email is required.
+                        </div>
+                    </div>
+<p>
+    
+</p>
+                
+
+                    <button type="submit" class="btn btn-primary"> Add client </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+    </div>
+</div>

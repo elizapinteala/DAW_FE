@@ -1,0 +1,140 @@
+<div>
+    <div style="font-size: 40px;">
+        <span class="mb-6"> <a href="#" routerLink="/animal">
+            </a></span>
+        </div>
+
+<br />
+<br />
+
+
+<div class="row" *ngIf="showMsg==1">
+    <p class="alert alert-success">
+        <strong>Animal was edited successfully!</strong>
+    </p>
+</div>
+
+<div class="row" *ngIf="showMsg==2">
+    <p class="alert alert-danger">
+        <strong>Animal cannot be edited!</strong>
+    </p>
+</div>
+
+<div class="card spur-card">
+
+    <div class="card-header">
+        <div class="spur-card-title font-weight-bold"> Edit Animal</div>
+    </div>
+    <div class="card-body ">
+    
+            
+                <ul>
+                    <label for="status">Status:
+                        <br/>
+                        <div class="form-group">
+                            <mat-form-field>
+                                <mat-label>Status</mat-label>
+                                <mat-select [(ngModel)]="editAnimal.status" name="status" required
+                                    #status="ngModel">
+                                    <mat-option *ngFor="let stat of statusValues"
+                                        [value]="stat.value">
+                                        {{stat.viewValue}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        
+                    </label>
+                
+                    <br/>
+
+                    <label>Name:
+                        <br />
+                        <input type="text" [(ngModel)]="editAnimal.name" class="form-control"
+                         readonly   name="name" required #name="ngModel">
+                    </label>
+                    <br />
+                    <p>
+
+                    </p>
+                    <label>Age:
+                        <br />
+                        <input type="number" [min]="0" [(ngModel)]="editAnimal.age" class="form-control" name="age" required 
+                            #name="ngModel">
+                    </label>
+                    <br />
+                    <p>
+                        
+                    </p>
+                    <label for="gender">Gender:
+                        
+                        <div class="form-group">
+                            <mat-form-field>
+                                <mat-label>Gender</mat-label>
+                                <mat-select [(ngModel)]="editAnimal.gender" name="gender" required
+                                #gender="ngModel">
+                                    <mat-option *ngFor="let gen of genderValues"
+                                        [value]="gen.value">
+                                        {{gen.viewValue}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </label>
+
+<br/>
+                    <label>Specie:
+                        <br />
+                        <input type="text" [(ngModel)]="editAnimal.specie" class="form-control" name="specie" required
+                            #name="ngModel">
+                    </label>
+                    <br/>
+                    <p>
+                        
+                    </p>
+
+                    <label>Breed:
+                        <br />
+                        <input type="text" [(ngModel)]="editAnimal.breed" class="form-control" name="breed" required
+                           #name="ngModel">
+                    </label>
+                    <br/>
+
+                    <p>
+                        
+                    </p>
+
+                    <label>Check In Date:
+                        <br />
+                        <input type="text" [(ngModel)]="editAnimal.checkInDate" class="form-control" name="checkInDate" required
+                           #name="ngModel">
+                    </label>
+                    <br/>
+                    <p>
+                        
+                    </p>
+<p>
+                        
+                    <!-- </p>
+                    <label>ID Shelter:
+                        <br />
+                        <input type="number" [(ngModel)]="editAnimal.idShelterAnimal" class="form-control" name="idShelterAnimal" required
+                            #name="ngModel" readonly>
+                    </label>
+                    <br/> -->
+                
+                   
+                  
+
+
+                    <button type="button" class="btn btn-info edit" (click)="editAnimals()">
+                        Save
+                    </button>
+
+
+                </ul>
+            
+         
+</div>
+</div>
+</div>

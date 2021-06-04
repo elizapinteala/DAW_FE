@@ -1,0 +1,114 @@
+
+<div class="row">
+    <div class="col-md-6">
+        <div>
+            <br />
+        </div>
+        <div class="row" *ngIf="showMsg==1">
+            <p class="alert alert-success">
+                <strong>Employee was added successfully!</strong>
+            </p>
+        </div>
+        <div></div>
+        <div class="row" *ngIf="showMsg==2">
+            <p class="alert alert-danger">
+                <strong>Employee cannot be added!</strong>
+            </p>
+        </div>
+        <div class="card spur-card">
+            <div class="card-header">
+                <div class="spur-card-title font-weight-bold"> Add a new employee</div>
+            </div>
+            <div class="card-body ">
+                <form (ngSubmit)="onSubmit(employeeForm)" #employeeForm="ngForm" class="form">
+                    <!-- <div class="form-group required">
+                        <label for="type">Type: </label>
+                        <input type="text" [(ngModel)]="employee.type" class="form-control"
+                            placeholder="Enter employee type" name="type" required #type="ngModel">
+                    </div>
+                    <div *ngIf="type.invalid && (type.dirty || type.touched)" class="alert alert-danger">
+                        <div *ngIf="type.errors?.required">
+                            Type is required.
+                        </div>
+                    </div> -->
+
+                    <label for="type">Type:
+                        <div class="form-group">
+                            <mat-form-field>
+                                <mat-label>Type</mat-label>
+                                <mat-select [(ngModel)]="employee.type" name="type" required
+                                    #type="ngModel">
+                                    <mat-option *ngFor="let typ of typeValues"
+                                        [value]="typ.value">
+                                        {{typ.viewValue}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        
+                    </label>
+
+                    <div class="form-group">
+                        <label for="firstName">First Name: </label>
+                        <input type="text" [(ngModel)]="employee.firstName" class="form-control"
+                            placeholder="Enter First Name" name="firstName" required #firstName="ngModel">
+                    </div>
+                    <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert alert-danger">
+                        <div *ngIf="firstName.errors?.required">
+                            FirstName is required.
+                        </div>
+                    </div>
+<p>
+
+</p>
+                 
+
+                    <div class="form-group">
+                        <label for="lastName">Last Name: </label>
+                        <input type="text" [(ngModel)]="employee.lastName" class="form-control"
+                            placeholder="Enter Last Name" name="lastName" required #lastName="ngModel">
+                    </div>
+                    <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger">
+                        <div *ngIf="lastName.errors?.required">
+                            Last Name is required.
+                        </div>
+                    </div>
+            <p>
+
+            </p>
+                    <div class="form-group">
+                        <label for="email">Email: </label>
+                        <input type="text" [(ngModel)]="employee.email" class="form-control"
+                            placeholder="Enter email" name="email" required #email="ngModel">
+                    </div>
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                        <div *ngIf="email.errors?.required">
+                            Email is required.
+                        </div>
+                    </div>
+
+                    <p>
+
+                    </p>
+                    <div class="form-group">
+                        <label for="idCenterEmployee"> Shelter ID: </label>
+                        <input type="number" [(ngModel)]="employee.idCenterEmployee" class="form-control"
+                            placeholder="Enter id shelter" name="idCenterEmployee" required #idCenterEmployee="ngModel">
+                    </div>
+                    <div *ngIf="idCenterEmployee.invalid && (idCenterEmployee.dirty || idCenterEmployee.touched)" class="alert alert-danger">
+                        <div *ngIf="idCenterEmployee.errors?.required">
+                            Shelter Id is required.
+                        </div>
+                    </div>
+                
+<p>
+    
+</p>
+                    <button type="submit" class="btn btn-primary"> Add employee </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+    </div>
+</div>

@@ -1,0 +1,158 @@
+<div class="row">
+    <div class="col-md-6">
+        <div>
+            <br />
+        </div>
+        <div class="row" *ngIf="showMsg==1">
+            <p class="alert alert-success">
+                <strong>Adoption was added successfully!</strong>
+            </p>
+        </div>
+        <div></div>
+        <div class="row" *ngIf="showMsg==2">
+            <p class="alert alert-danger">
+                <strong>Adoption cannot be added!</strong>
+            </p>
+        </div>
+        <div class="card spur-card">
+            <div class="card-header">
+                <div class="spur-card-title font-weight-bold"> Add a new adoption</div>
+            </div>
+            <div class="card-body ">
+                <form (ngSubmit)="onSubmit(animalForm)" #animalForm="ngForm" class="form">
+                    <div class="form-group required">
+                        <label for="adoptionDate">Adoption Date: </label>
+                        <input type="datetime" [(ngModel)]="adoption.adoptionDate" class="form-control"
+                            placeholder="Enter adoption date" name="adoptionDate" required #adoptionDate="ngModel">
+                    </div>
+                    <div *ngIf="adoptionDate.invalid && (adoptionDate.dirty || adoptionDate.touched)" class="alert alert-danger">
+                        <div *ngIf="adoptionDate.errors?.required">
+                            Adoption Date is required.
+                        </div>
+                    </div>
+<p>
+
+</p>
+
+<div class="form-group required">
+    <label for="idShelterAdoption">Shelter ID: </label>
+    <input type="number" [(ngModel)]="adoption.idShelterAdoption" class="form-control"
+        placeholder="Enter shelter ID" name="idShelterAdoption" required #idShelterAdoption="ngModel">
+</div>
+<div *ngIf="idShelterAdoption.invalid && (idShelterAdoption.dirty || idShelterAdoption.touched)" class="alert alert-danger">
+    <div *ngIf="idShelterAdoption.errors?.required">
+        Shelter ID is required.
+    </div>
+</div>
+<p>
+
+</p>
+<div class="form-group required">
+    <label for="shelterName">Shelter name: </label>
+    <input type="text" [(ngModel)]="adoption.shelterName" class="form-control"
+        placeholder="Enter shelter name" name="shelterName" required #shelterName="ngModel">
+</div>
+<div *ngIf="shelterName.invalid && (shelterName.dirty || shelterName.touched)" class="alert alert-danger">
+    <div *ngIf="shelterName.errors?.required">
+        Shelter name is required.
+    </div>
+</div>
+<p>
+
+</p>
+
+<div class="form-group required">
+    <label for="idAnimalAdoption">Animal ID: </label>
+    <input type="number" [(ngModel)]="adoption.idAnimalAdoption" class="form-control"
+        placeholder="Enter animal ID" name="idAnimalAdoption" required #idAnimalAdoption="ngModel">
+</div>
+<div *ngIf="idAnimalAdoption.invalid && (idAnimalAdoption.dirty || idAnimalAdoption.touched)" class="alert alert-danger">
+    <div *ngIf="idAnimalAdoption.errors?.required">
+        Animal ID is required.
+    </div>
+</div>
+<p>
+
+</p>
+
+                    <div class="form-group">
+                        <label for="animalName">Animal Name: </label>
+                        <input type="text" [(ngModel)]="adoption.animalName" class="form-control"
+                            placeholder="Enter animal name" name="animalName" required #animalName="ngModel">
+                    </div>
+                    <div *ngIf="animalName.invalid && (animalName.dirty || animalName.touched)" class="alert alert-danger">
+                        <div *ngIf="animalName.errors?.required">
+                            Animal name is required.
+                        </div>
+                    </div>
+
+                 <p>
+
+                 </p>
+<div class="form-group">
+                        <label for="idPersonAdoption">Person ID: </label>
+                        <input type="number" [(ngModel)]="adoption.idPersonAdoption" class="form-control"
+                            placeholder="Enter Person ID" name="idPersonAdoption" required #idPersonAdoption="ngModel">
+                    </div>
+                    <div *ngIf="idPersonAdoption.invalid && (idPersonAdoption.dirty || idPersonAdoption.touched)" class="alert alert-danger">
+                        <div *ngIf="idPersonAdoption.errors?.required">
+                            Person ID is required.
+                        </div>
+                    </div>
+
+                    <p>
+
+                    </p>
+                    <div class="form-group">
+                        <label for="firstNamePerson">First Name Person: </label>
+                        <input type="text" [(ngModel)]="adoption.firstNamePerson" class="form-control"
+                            placeholder="Enter First Name Person" name="firstNamePerson" required #firstNamePerson="ngModel">
+                    </div>
+                    <div *ngIf="firstNamePerson.invalid && (firstNamePerson.dirty || firstNamePerson.touched)" class="alert alert-danger">
+                        <div *ngIf="firstNamePerson.errors?.required">
+                            First Name Person is required.
+                        </div>
+                    </div>
+                    <p>
+
+                    </p>
+            
+                    <div class="form-group">
+                        <label for="lastNamePerson">Last Name Person: </label>
+                        <input type="text" [(ngModel)]="adoption.lastNamePerson" class="form-control"
+                            placeholder="Enter Last Name Person" name="lastNamePerson" required #lastNamePerson="ngModel">
+                    </div>
+                    <div *ngIf="lastNamePerson.invalid && (lastNamePerson.dirty || lastNamePerson.touched)" class="alert alert-danger">
+                        <div *ngIf="lastNamePerson.errors?.required">
+                            Last Name Person is required.
+                        </div>
+                    </div>
+                    <p>
+
+                    </p>
+
+                    <div class="form-group">
+                        <label for="phonePerson">Phone Person: </label>
+                        <input type="text" [(ngModel)]="adoption.phonePerson" class="form-control"
+                            placeholder="Enter Phone Person" name="phonePerson" required #phonePerson="ngModel">
+                    </div>
+                    <div *ngIf="phonePerson.invalid && (phonePerson.dirty || phonePerson.touched)" class="alert alert-danger">
+                        <div *ngIf="phonePerson.errors?.required">
+                            Phone Person is required.
+                        </div>
+                    </div>
+                    <p>
+
+                    </p>
+
+        
+                
+
+                    <button type="submit" class="btn btn-primary"> Add adoption </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+    </div>
+</div>

@@ -1,0 +1,101 @@
+<div>
+    <div style="font-size: 40px;">
+    <span class="mb-3"> <a href="#" routerLink="add">
+        <button type="submit" class="btn btn-success"> Add animal </button></a></span>
+        </div>
+    
+</div>
+<div class="row">
+
+    <table mat-table [dataSource]="animalList">
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef> <span >Animal Status</span>
+             
+            </th>
+            <td mat-cell *matCellDef="let animal">
+                    {{animal.status}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="name" >
+            <th mat-header-cell *matHeaderCellDef> <span  >Animal name</span>
+             
+            </th>
+            <td mat-cell *matCellDef="let animal">
+                    {{animal.name}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="age" >
+            <th mat-header-cell *matHeaderCellDef> <span  >Animal age</span>
+             
+            </th>
+            <td mat-cell *matCellDef="let animal">
+                    {{animal.age}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="gender" >
+            <th mat-header-cell *matHeaderCellDef> <span  >Animal gender</span>
+             
+            </th>
+            <td mat-cell *matCellDef="let animal">
+                    {{animal.gender}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="specie">
+            <th mat-header-cell *matHeaderCellDef> <span  >Animal specie</span>
+             
+            </th>
+            <td mat-cell *matCellDef="let animal">
+                    {{animal.specie}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="breed" >
+            <th mat-header-cell *matHeaderCellDef> <span  >Animal breed</span>
+             
+            </th>
+            <td mat-cell *matCellDef="let animal">
+                    {{animal.breed}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="checkInDate">
+            <th mat-header-cell *matHeaderCellDef>
+                <span> Check In Date </span>
+             
+            </th>
+            <td mat-cell *matCellDef="let animal">
+                {{animal.checkInDate}} </td>
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </ng-container>
+
+
+ 
+<ng-container matColumnDef="actions">
+<th mat-header-cell *matHeaderCellDef>
+<span> Actions </span>
+
+</th>
+<td mat-cell *matCellDef="let animal">
+    <a href="#" routerLink="edit/{{animal.idAnimal}}">
+        <button  class="btn btn-info" >
+            Edit
+            </button>
+    </a>
+
+
+
+
+
+<button type="submit" class="btn btn-danger" (click)="deleteAnimal(animal.idAnimal)">
+Delete
+</button>
+</td>
+
+</ng-container>
+ 
+<!-- <trmat-header-row*matHeaderRowDef="displayedColumns"></tr>
+<trmat-row*matRowDef="let row; columns: displayedColumns;"></tr> -->
+
+
+    </table>
+
+</div>

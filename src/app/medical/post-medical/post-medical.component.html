@@ -1,0 +1,119 @@
+
+<div class="row">
+    <div class="col-md-6">
+        <div>
+            <br />
+        </div>
+        <div class="row" *ngIf="showMsg==1">
+            <p class="alert alert-success">
+                <strong>Medical Chart was added successfully!</strong>
+            </p>
+        </div>
+        <div></div>
+        <div class="row" *ngIf="showMsg==2">
+            <p class="alert alert-danger">
+                <strong>Medical Chart cannot be added!</strong>
+            </p>
+        </div>
+        <div class="card spur-card">
+            <div class="card-header">
+                <div class="spur-card-title font-weight-bold"> Add a new Medical Chart</div>
+            </div>
+            <div class="card-body ">
+                <form (ngSubmit)="onSubmit(medicalForm)" #medicalForm="ngForm" class="form">
+                    <div class="form-group required">
+                        <label for="chartDate">Chart Date: </label>
+                        <input type="text" [(ngModel)]="medical.chartDate" class="form-control"
+                            placeholder="Enter Chart Date" name="chartDate" required #chartDate="ngModel">
+                    </div>
+                    <div *ngIf="chartDate.invalid && (chartDate.dirty || chartDate.touched)" class="alert alert-danger">
+                        <div *ngIf="chartDate.errors?.required">
+                            Chart Date is required.
+                        </div>
+                    </div>
+                    <p>
+
+                    </p>
+
+                    <div class="form-group">
+                        <label for="disease">Animal Disease: </label>
+                        <input type="text" [(ngModel)]="medical.disease" class="form-control"
+                            placeholder="Enter animal disease" name="disease" required #disease="ngModel">
+                    </div>
+                    <div *ngIf="disease.invalid && (disease.dirty || disease.touched)" class="alert alert-danger">
+                        <div *ngIf="disease.errors?.required">
+                            Animal disease is required.
+                        </div>
+                    </div>
+
+                 <p>
+
+                 </p>
+
+                    <!-- <div class="form-group">
+                        <label for="treatment">Treatment: </label>
+                        <input type="text" [(ngModel)]="medical.treatment" class="form-control"
+                            placeholder="Enter animal treatment" name="treatment" required #treatment="ngModel">
+                    </div>
+                    <div *ngIf="treatment.invalid && (treatment.dirty || treatment.touched)" class="alert alert-danger">
+                        <div *ngIf="treatment.errors?.required">
+                            Treatment is required.
+                        </div>
+                    </div> -->
+
+                    <label for="treatment">Treatment:
+                        <div class="form-group">
+                            <mat-form-field>
+                                <mat-label>Treatment</mat-label>
+                                <mat-select [(ngModel)]="medical.treatment" name="treatment" required
+                                    #treatment="ngModel">
+                                    <mat-option *ngFor="let treat of treatmentValues"
+                                        [value]="treat.value">
+                                        {{treat.viewValue}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </label>
+
+                    <div class="form-group">
+                        <label for="idAnimalMedical">Animal ID: </label>
+                        <input type="number" [(ngModel)]="medical.idAnimalMedical" class="form-control"
+                            placeholder="Enter animal ID" name="idAnimalMedical" required #idAnimalMedical="ngModel">
+                    </div>
+                    <div *ngIf="idAnimalMedical.invalid && (idAnimalMedical.dirty || idAnimalMedical.touched)" class="alert alert-danger">
+                        <div *ngIf="idAnimalMedical.errors?.required">
+                            Animal ID is required.
+                        </div>
+                    </div>
+            
+                    <p>
+                        
+                    </p>
+                    <div class="form-group">
+                        <label for="animalName">Animal Name: </label>
+                        <input type="text" [(ngModel)]="medical.animalName" class="form-control"
+                            placeholder="Enter animal name" name="animalName" required #animalName="ngModel">
+                    </div>
+                    <div *ngIf="animalName.invalid && (animalName.dirty || animalName.touched)" class="alert alert-danger">
+                        <div *ngIf="animalName.errors?.required">
+                            Animal Name is required.
+                        </div>
+                    </div>
+            
+                    <div>
+                        <p>
+
+                        </p>
+                    </div>
+
+                
+
+                    <button type="submit" class="btn btn-primary"> Add medical chart </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+    </div>
+</div>

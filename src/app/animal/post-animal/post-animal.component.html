@@ -1,0 +1,176 @@
+<div class="row">
+    <div class="col-md-6">
+        <div>
+            <br />
+        </div>
+        <div class="row" *ngIf="showMsg==1">
+            <p class="alert alert-success">
+                <strong>Animal was added successfully!</strong>
+            </p>
+        </div>
+        <div></div>
+        <div class="row" *ngIf="showMsg==2">
+            <p class="alert alert-danger">
+                <strong>Animal cannot be added!</strong>
+            </p>
+        </div>
+        <div class="card spur-card">
+            <div class="card-header">
+                <div class="spur-card-title font-weight-bold"> Add a new animal</div>
+            </div>
+            <div class="card-body ">
+                <form (ngSubmit)="onSubmit(animalForm)" #animalForm="ngForm" class="form">
+                    <!-- <div class="form-group required">
+                        <label for="status">Status: </label>
+                        <input type="text" [(ngModel)]="animal.status" class="form-control"
+                            placeholder="Enter animal status" name="status" required #status="ngModel">
+                    </div>
+                    <div *ngIf="status.invalid && (status.dirty || status.touched)" class="alert alert-danger">
+                        <div *ngIf="status.errors?.required">
+                            Status is required.
+                        </div>
+                    </div> -->
+
+                    <label for="status">Status:
+                        <div class="form-group">
+                            <mat-form-field>
+                                <mat-label>Status</mat-label>
+                                <mat-select [(ngModel)]="animal.status" name="status" required
+                                    #status="ngModel">
+                                    <mat-option *ngFor="let stat of statusValues"
+                                        [value]="stat.value">
+                                        {{stat.viewValue}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                        
+                    </label>
+
+                    <div class="form-group">
+                        <label for="name">Animal Name: </label>
+                        <input type="text" [(ngModel)]="animal.name" class="form-control"
+                            placeholder="Enter animal name" name="name" required #name="ngModel">
+                    </div>
+                    <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+                        <div *ngIf="name.errors?.required">
+                            Animal name is required.
+                        </div>
+                        <p>
+
+                        </p>
+                    </div>
+
+                 
+
+                    <div class="form-group">
+                        <p>
+
+                        </p>
+                        <label for="age">Age: </label>
+                        <input type="number" [(ngModel)]="animal.age" class="form-control"
+                            placeholder="Enter animal age" name="age" required #age="ngModel">
+                    </div>
+                    <div *ngIf="age.invalid && (age.dirty || age.touched)" class="alert alert-danger">
+                        <div *ngIf="age.errors?.required">
+                            Age is required.
+                        </div>
+                    </div>
+                    <p>
+
+                    </p>
+            
+                    <!-- <div class="form-group">
+                        <label for="gender">Gender: </label>
+                        <input type="text" [(ngModel)]="animal.gender" class="form-control"
+                            placeholder="Enter animal gender" name="gender" required #gender="ngModel">
+                    </div>
+                    <div *ngIf="gender.invalid && (gender.dirty || gender.touched)" class="alert alert-danger">
+                        <div *ngIf="gender.errors?.required">
+                            Gender is required.
+                        </div>
+                    </div> -->
+
+                    <label for="gender">Gender:
+                        
+                        <div class="form-group">
+                            <mat-form-field>
+                                <mat-label>Gender</mat-label>
+                                <mat-select [(ngModel)]="animal.gender" name="gender" required
+                                    #gender="ngModel">
+                                    <mat-option *ngFor="let gen of genderValues"
+                                        [value]="gen.value">
+                                        {{gen.viewValue}}
+                                    </mat-option>
+                                </mat-select>
+                            </mat-form-field>
+                        </div>
+                    </label>
+
+                    <div class="form-group">
+                        <label for="specie">Specie: </label>
+                        <input type="text" [(ngModel)]="animal.specie" class="form-control"
+                            placeholder="Enter animal specie" name="specie" required #specie="ngModel">
+                    </div>
+                    <div *ngIf="specie.invalid && (specie.dirty || specie.touched)" class="alert alert-danger">
+                        <div *ngIf="specie.errors?.required">
+                            Specie is required.
+                        </div>
+                    </div>
+
+                    <p>
+
+                    </p>
+                    <div class="form-group">
+                        <label for="breed">Breed: </label>
+                        <input type="text" [(ngModel)]="animal.breed" class="form-control"
+                            placeholder="Enter animal breed" name="breed" required #breed="ngModel">
+                    </div>
+                    <div *ngIf="breed.invalid && (breed.dirty || breed.touched)" class="alert alert-danger">
+                        <div *ngIf="breed.errors?.required">
+                            Breed is required.
+                        </div>
+                    </div>
+                    <p>
+
+                    </p>
+
+                    <div class="form-group">
+                        <label for="checkInDate">Check In Date: </label>
+                        <input type="datetime" [(ngModel)]="animal.checkInDate" class="form-control"
+                            placeholder="Enter animal check in date" name="checkInDate" required #checkInDate="ngModel">
+                    </div>
+                    <div *ngIf="checkInDate.invalid && (checkInDate.dirty || checkInDate.touched)" class="alert alert-danger">
+                        <div *ngIf="checkInDate.errors?.required">
+                            Check In Date is required.
+                        </div>
+                    </div>
+
+                    <p>
+
+                    </p>
+                    <div class="form-group">
+                        <label for="idShelterAnimal">idShelter: </label>
+                        <input type="number" [(ngModel)]="animal.idShelterAnimal" class="form-control"
+                            placeholder="Enter idShelterAnimal" name="idShelterAnimal" required #idShelterAnimal="ngModel">
+                    </div>
+                    <div *ngIf="idShelterAnimal.invalid && (idShelterAnimal.dirty || idShelterAnimal.touched)" class="alert alert-danger">
+                        <div *ngIf="idShelterAnimal.errors?.required">
+                            idShelterAnimal is required.
+                        </div>
+                    </div>
+                
+                    <div>
+                        <p>
+
+                        </p>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary"> Add animal </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+    </div>
+</div>
