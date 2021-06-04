@@ -48,9 +48,6 @@ export class EditAnimalComponent implements OnInit {
 }
 
 editAnimals(): void {
-
-    console.log("edit Animal ----------");
-    console.log(this.editAnimal);
     this.editAnimal.idShelterAnimal=4;
     this.animalService.editAnimal(this.editAnimal).subscribe(data => { this.showMsg = 1; },
         error => {
